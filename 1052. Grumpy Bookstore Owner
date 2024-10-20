@@ -1,0 +1,18 @@
+class Solution:
+    def maxSatisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
+        maxsum = 0
+        l = len(customers)
+        maxind = 0
+        if len(customers) > minutes:
+            for i in range(l-2):
+                currsum = customers[i] + customers[i+1] + customers[i+2]
+                if currsum > maxsum:
+                    maxsum = currsum
+                    maxind = i
+            del customers[maxind:maxind+3]
+            del grumpy[maxind:maxind+3]
+        maxsum2 = 0
+        for i,n in enumerate(grumpy):
+            if not n:
+                maxsum2 += customers[i]
+        return maxsum2 + maxsum
