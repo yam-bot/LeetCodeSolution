@@ -1,0 +1,15 @@
+class Solution:
+    def minAddToMakeValid(self, s: str) -> int:
+        obracket = 0
+        cbracket = 0
+        ans = 0
+        for b in s:
+            if b == "(":
+                obracket += 1
+            else:
+                cbracket += 1
+            if cbracket > obracket:
+                ans += 1
+                obracket += 1
+        return abs(obracket-cbracket) + ans
+        
