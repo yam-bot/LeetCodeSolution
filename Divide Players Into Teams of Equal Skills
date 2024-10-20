@@ -1,0 +1,14 @@
+class Solution:
+    def dividePlayers(self, skill: List[int]) -> int:
+        skill.sort()
+        l = len(skill)
+        pair = []
+        prodsum = 0
+        if l % 2 == 0:
+            for i in range(0,l//2):
+                pair.append((skill[i],skill[l-i-1]))
+                currsum = skill[i] + skill[l-i-1]
+                prodsum += skill[i] * skill[l-i-1]
+                if(i != 0) and currsum != prevsum: return -1
+                prevsum = currsum 
+        return prodsum
