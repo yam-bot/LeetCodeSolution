@@ -1,0 +1,43 @@
+class Solution:
+    def regionsBySlashes(self,grid: List[str]) -> int:
+        self.regions = defaultdict(list)
+        def findroot(x):
+            if x not in self.regions:
+                self.regions[x].append(x)
+                self.regions[x].append(0)
+            if x != self.regions[x][0]:
+                self.regions[x][0] = findroot(self.regions[x][0])
+            return self.regions[x][0]
+        def union(x,y,call):
+            xroot = findroot(x)
+            yroot = findroot(y)
+            if self.regions[xroot][-1] >= self.regions[yroot][-1]:
+                self.regions[y][0] = xroot
+                self.regions[yroot][0] = xroot
+                self.regions[xroot][-1] += 1 
+                self.regions[yroot][-1] -= 1 
+            elif self.regions[yroot][-1] > self.regions[xroot][-1]:
+                self.regions[x][0] = yroot
+                self.regions[xroot][0] = yroot
+                self.regions[yroot][-1] += 1
+                self.regions[xroot][-1] -= 1 
+        for r in range(len(grid)):
+            for c in range(len(grid[r])):
+                if r > 0:
+                    union((r-1,c,"S"),(r,c,"N"),"r")
+                if c > 0:
+                    union((r,c,"W"),(r,c-1,"E"),"c")
+                if grid[r][c] == "/":
+                    union((r,c,"N"),(r,c,"W"),"/")
+                    union((r,c,"S"),(r,c,"E"),"/")
+                elif grid[r][c] == "\\":
+                    union((r,c,"N"),(r,c,"E"),"\\")
+                    union((r,c,"S"),(r,c,"W"),"\\")
+                elif grid[r][c] == " ":
+                    union((r,c,"N"),(r,c,"E"),"SPACE")
+                    union((r,c,"S"),(r,c,"E"),"SPACE")
+                    union((r,c,"N"),(r,c,"W"),"SPACE")
+                    union((r,c,"S"),(r,c,"W"),"SPACE")
+        return len(set(map(findroot,self.regions)))
+
+            
