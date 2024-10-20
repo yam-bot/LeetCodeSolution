@@ -1,0 +1,25 @@
+class Solution:
+    def maximumSwap(self, num: int) -> int:
+        numstr = str(num)
+        nums = [n for n in numstr]
+        sortednums = sorted(nums,reverse = True)
+        isbreak = False
+        if sortednums[0] > nums[0]:
+            for i in range(len(nums)-1,0,-1):
+                if nums[i] == sortednums[0]:
+                    nums[i] = nums[0]
+                    nums[0] = sortednums[0]
+                    break
+        else:
+            for i in range(1,len(nums)):
+                if nums[i] != sortednums[i]:
+                    for j in range(len(nums)-1,i,-1):
+                        if nums[j] == sortednums[i]:
+                            nums[j] = nums[i]
+                            nums[i] = sortednums[i]
+                            isbreak = True
+                            break
+                if isbreak == True : break
+        nums = int("".join(nums))
+        return nums
+        
