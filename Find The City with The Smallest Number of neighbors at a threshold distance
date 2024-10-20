@@ -1,0 +1,25 @@
+class Solution:
+    def findTheCity(self, n: int, edges: List[List[int]], distanceThreshold: int) -> int:
+        distmatrix = [[100000] * n for i in range(n)]
+        for i in range(n):
+            distmatrix[i][i] = 0
+        for node in edges:
+            distmatrix[node[0]][node[1]] = node[2]
+            distmatrix[node[1]][node[0]] = node[2]
+        connections = [[0]*n for i in range(n)]
+        minconnection = 1000
+        city = 0
+        for i in range(n):
+            for r in range(n):
+                for c in range(n):
+                    distmatrix[r][c] = min(distmatrix[r][c],distmatrix[r][i] + distmatrix[c][i])
+                    if distmatrix[r][c] > distanceThreshold or distmatrix[r][c] == 0:
+                        connections[r][c] = 0
+                    else:
+                        connections[r][c] = 1
+        for i in range(n):
+            if sum(connections[i]) <= minconnection:
+                minconnection = sum(connections[i])
+                city = i
+        return city
+                        
