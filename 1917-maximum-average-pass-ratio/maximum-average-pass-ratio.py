@@ -16,20 +16,3 @@ class Solution:
             sumratio -= d
             heapreplace(ratioStudent,(-(newr - oldr),p+1,t+1))
         return sumratio/len(classes)
-        #n=len(classes)
-        #sum=0
-        #A=[]
-        #for p,q in classes:
-        #    sum+=p/q
-        #    A.append(((p-q)/(q*(q+1)), p, q)) # change sign
-#
-        #heapify(A)
-#
-        #for _ in range(extraStudents):
-        #    (r, p, q)=A[0]
-        #    if r==0: break
-        #    sum-=r # change sign
-        #    r2=(p-q)/((q +1.0)* (q + 2.0))
-        #    heapreplace(A, (r2, p+1, q+1))
-        #    print(A)
-        #return sum/n
