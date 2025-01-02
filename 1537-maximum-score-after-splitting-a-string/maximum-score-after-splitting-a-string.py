@@ -6,6 +6,5 @@ class Solution:
         if 0 not in s : return (s.count(1) - 1)
         for i in range(len(s)-1):
             c = s[0:i+1].count(0) + s[i+1:].count(1)
-            print(s[0:i+1],s[i+1:],c)
             maxcombo = max(maxcombo,c)
         return maxcombo
