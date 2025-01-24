@@ -10,10 +10,8 @@ class Solution:
                 if grid[i][j] == 1:
                     serverrow[i] += 1
                     servercol[j] += 1
-        print(serverrow,servercol)
         for i in range(rlen):
             for j in range(clen):
                 if grid[i][j] == 1 and (serverrow[i] > 1 or servercol[j] > 1):
                     res += 1
-                    print("( ",i," , ",j," ) ")
         return res
