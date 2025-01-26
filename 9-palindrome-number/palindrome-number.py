@@ -5,6 +5,5 @@ class Solution:
         while x:
             l.append(x % 10)
             x = x // 10
-            #print(l)
         if l[::-1] == l : return True
         else : return False
