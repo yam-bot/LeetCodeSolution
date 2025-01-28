@@ -17,7 +17,7 @@ class Solution:
                         currfish += grid[currow][currcol]
                         visited.add((currow,currcol))
                         dfs(currow,currcol)
-            return 
+
         for i, row in enumerate(grid):
             for j, col in enumerate(row):
                 if col > 0 :
