@@ -4,6 +4,7 @@ class Solution:
         maxfish = 0
         currfish = 0
         visited = set()
+
         def dfs(r,c):
             nonlocal currfish
             if grid[r][c] == 0 :
@@ -18,7 +19,7 @@ class Solution:
 
         for i, row in enumerate(grid):
             for j, col in enumerate(row):
-                if col > 0 :
+                if col > 0  and (i,j) not in visited:
                     currfish = col
                     visited.add((i,j))
                     dfs(i,j)
