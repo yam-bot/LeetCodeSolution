@@ -5,5 +5,4 @@ class Solution:
             if sorted_nums[i:] == nums:
                 return True
             sorted_nums.append(sorted_nums[i])
-            print(sorted_nums)
         return False
