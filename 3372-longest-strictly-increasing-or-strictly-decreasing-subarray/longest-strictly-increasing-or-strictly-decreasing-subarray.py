@@ -11,7 +11,6 @@ class Solution:
                 dec += 1
             else:
                 inc = dec = 1
-            print(inc , dec , nums[i])
             maxlen = max(maxlen,inc,dec)
         return maxlen
             
