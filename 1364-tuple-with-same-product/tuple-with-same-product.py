@@ -9,5 +9,4 @@ class Solution:
                     prod = nums[i] * nums[j]
                     ans += 8 * productdict[prod]
                     productdict[prod] += 1
-        print(productdict)
         return ans
