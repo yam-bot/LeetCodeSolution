@@ -2,7 +2,7 @@ class Solution:
     def clearDigits(self, s: str) -> str:
         l = len(s)
         digitInd = [i for i in range(l) if s[i].isdigit()]
-        s = [c for c in s]
+        s = list(s)
         cnt = 0
         for i in digitInd:
             if i > 2 and cnt >0:
