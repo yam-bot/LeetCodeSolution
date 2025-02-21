@@ -18,9 +18,7 @@ class Solution:
         for i in range(len(stack2)-1,-1,-1):
             num2 += stack2[i] * (10 ** i)
         sumnum = num1 + num2
-        print(num1,num2)
         numlist = [int(n) for n in str(sumnum)]
-        print(numlist)
         dummy = ListNode()
         tail = dummy
         while numlist:
