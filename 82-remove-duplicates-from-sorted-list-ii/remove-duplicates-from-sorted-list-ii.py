@@ -22,7 +22,7 @@ class Solution:
                 stack[-1] = node
                 return node
             node.next = checkduplicate(node.next)
-            print(node.next)
+            #print(node.next)
             if node.val not in repeated:
                 stack[-1] = node
             return stack[-1]
