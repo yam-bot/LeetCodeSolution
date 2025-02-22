@@ -23,9 +23,6 @@ class Solution:
             length += 1
             curr = curr.next
         seperated.next, begin.next, tail.next = None , None, None
-        print(dummy1.next)
-        print(dummy2.next)
-        print(begin)
         def reverse(node):
             if not node.next or not node:
                 return node
