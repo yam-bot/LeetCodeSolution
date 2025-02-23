@@ -18,27 +18,17 @@ class LRUCache:
         node.nxt.prev, node.prev.nxt = node.prev, node.nxt
         
     def insert(self,node):
-        self.print_cache()
-        #print("nhere",self.mru.prev.key,self.mru.prev.val,self.lru.nxt.key,self.lru.nxt.val)
         self.mru.prev.nxt = node
         node.nxt = self.mru
         node.prev = self.mru.prev
         self.mru.prev = node
 
-    
-    def print_cache(self):
-        curr = self.lru
-        while curr:
-            curr = curr.nxt
 
     def get(self, key: int) -> int:
         if key not in self.cache:
             return -1
-        #self.print_cache()
         self.remove(self.cache[key])
         self.insert(self.cache[key])
-        #print("----------",key)
-        #self.print_cache()
         return self.cache[key].val
         
 
@@ -50,7 +40,6 @@ class LRUCache:
         if len(self.cache) > self.capacity:
             lrunode = self.lru.nxt
             self.remove(lrunode)
-            #print(lrunode.val,lrunode.key,key,value)
             del self.cache[lrunode.key]
 
 
