@@ -15,7 +15,6 @@ class Solution:
                     if dfs(i) == False:
                         return False
             prepared.add(recipe)
-            #ans.append(recipe)
             cycle.remove(recipe)
             return True
         for food in recipes:
