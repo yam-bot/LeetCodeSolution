@@ -16,5 +16,4 @@ class Solution:
                 r -= 1
             elif height[r] >= height[l]:
                 l += 1
-            print(l,r)
         return maxarea
