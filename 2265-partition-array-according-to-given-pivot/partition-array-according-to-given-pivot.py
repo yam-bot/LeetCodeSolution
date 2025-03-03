@@ -10,5 +10,4 @@ class Solution:
                 more.append(n)
             else:
                 p.append(pivot)
-        print(less)
         return less + p + more
