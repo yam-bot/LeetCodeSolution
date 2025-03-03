@@ -8,7 +8,6 @@ class Solution:
         left, right = 0 , len(numbers)-1
         ans = [left,right]
         while (numbers[left] + numbers[right]) != target and left != right:
-            print(left,right)
             if (numbers[left] + numbers[right]) < target:
                 left += 1
             elif (numbers[left] + numbers[right]) > target:
