@@ -7,7 +7,6 @@ class Solution:
             startx, endx, starty, endy = x[i][0] ,x[i][2], y[i][1], y[i][3]
             newstartx = max(prev_endx,startx)
             newstarty = max(prev_endy,starty)
-            print(newstartx,startx,newstarty,starty)
             if newstartx == startx:
                 divx += 1
             if newstarty == starty:
