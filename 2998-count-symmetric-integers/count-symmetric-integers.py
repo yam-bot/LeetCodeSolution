@@ -18,7 +18,6 @@ class Solution:
                 num2list = [int(i) for i in str(num2)]
                 if sum(num1list) == sum(num2list) : 
                     count+= 1
-                    print(num1,num2,count)
         return count
 
                         
