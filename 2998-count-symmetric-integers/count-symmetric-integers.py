@@ -10,7 +10,6 @@ class Solution:
                 num2 = n // 10
                 if num1 == num2 : 
                     count += 1
-                    print(num1,num2,count)
             elif l == 4:
                 num1 = n % 100
                 num2 = n // 100
