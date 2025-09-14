@@ -29,6 +29,5 @@ class Solution:
                     ans.append(dw[qstr][0])
                 else:
                     ans.append("") 
-        print(dw)
         return ans
 
